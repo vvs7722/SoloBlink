@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron Browser</title>
+    <style>
+        /* NUCLEAR FIX FOR LAYOUT */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #app-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0 !important;
+        }
+
+        #webviews-container {
+            flex: 1;
+            position: relative;
+            min-height: 0;
+            border: 2px solid red; /* Diagnostic border */
+        }
+
+        webview {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            border: 2px solid blue; /* Diagnostic border */
+        }
+
+        webview.active {
+            display: block;
+        }
+
+        /* Keep existing tab/toolbar styles */
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Tabs and Toolbar remain unchanged -->
+        <div id="webviews-container"></div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>
